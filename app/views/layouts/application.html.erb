@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ExhibitorPortal</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+
+    <% if current_user %>
+      <%= link_to sessions_path, method: :delete do %>
+        <span>Sign out</span>
+      <% end %>
+    <% end %>
+
+
+    <%= yield %>
+  </body>
+</html>
