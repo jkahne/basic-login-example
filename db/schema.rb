@@ -10,9 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2018_07_12_013351) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "password_digest"
+    t.string "password_reset_token"
+    t.datetime "password_reset_set_at"
+    t.string "role"
+    t.boolean "active", default: true
+    t.boolean "boolean", default: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
 end

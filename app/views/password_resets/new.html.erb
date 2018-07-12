@@ -1,0 +1,11 @@
+<div>
+  <%= form_tag password_resets_path, method: :post  do %>
+  Forgotten Password
+  <p>Enter the email address associated with your login, and we'll send you a message with instructions for resetting your password.</p>
+  <div>
+    <%= label_tag :email %>
+    <%= text_field_tag :email, params[:email]  %>
+  </div>
+  <%= submit_tag "Reset Password" %>
+  <% end %>
+</div>
