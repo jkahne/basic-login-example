@@ -23,7 +23,7 @@ class PasswordResetsController < ApplicationController
     if @user.update_attributes(reset_password_params)
       session[:user_id] = @user.id
       flash.now.notice = "Your password has been reset!"
-      redirect_to "/map#/dashboard"
+      redirect_to welcome_path
     else
       flash.now.alert = "Invalid Password."
       render :edit

@@ -1,4 +1,8 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+  mount Sidekiq::Web => '/sidekiq'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   post "logout" => "sessions#destroy", as: "logout"
@@ -14,8 +18,6 @@ Rails.application.routes.draw do
   end
 
   get "welcome" => "welcome#show", as: "welcome"
-
-
 
   root to: "sessions#new"
 

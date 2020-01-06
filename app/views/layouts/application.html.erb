@@ -14,9 +14,10 @@
       <%= content_tag :div, msg, :id => "flash_#{name}" %>
     <% end %>
 
-
-    <%= link_to sessions_path, method: :delete do %>
-      <span>Sign out</span>
+    <% if current_user %>
+      <%= link_to sessions_path, method: :delete do %>
+        <span>Sign out</span>
+      <% end %>
     <% end %>
 
 
